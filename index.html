@@ -20,46 +20,53 @@
   </head>
   <body>
     <div class="container p-0 my-sm-5 mx-auto border rounded">
-      <form class="row g-3 d-flex justify-content-center mx-auto">
+      <form class="row g-3 d-flex justify-content-center mx-auto needs-validation " novalidate>
         <div class="bg-light px-3 py-2 border">
           <h2>Payment form example</h2>
         </div>
         <div class="row mt-4">
           <div class="col-md-12">
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger d-none" role="alert">
               Some fields missing
             </div>
           </div>
         </div>
         <div class="row d-flex pt-3">
           <div class="col-md-4">
-            <h6>Card #</h6>
+            <label for="validationCustom01" class="form-label fw-semibold">Card #</label>
+            
             <input
               type="number"
               class="form-control"
               placeholder="XXXXXXXXXXXX"
               aria-label="Card"
               aria-describedby="addon-wrapping"
-              min="1"
+              minlength="16"
+              maxlength="16"
+              value=""
               id="validationCustom01"
               required
             />
+            <div id="alert-numbercard" class="invalid-feedback fst-normal " style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese 16 numeros.</div>
           </div>
           <div class="col-md-4">
-            <h6>CVC #</h6>
+            <label for="validationCustom02" class="form-label fw-semibold">CVC #</label>
             <input
               type="number"
               class="form-control"
               placeholder="0000"
               aria-label="CVC"
               aria-describedby="addon-wrapping"
-              min="1"
+              minlength="3"
+              maxlength="4"
+              value=""
               id="validationCustom02"
               required
             />
+            <span id="alert-cvccard" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese de 3 a 4 numeros.</span>
           </div>
           <div class="col-md-4">
-            <h6>Amount</h6>
+            <label for="validationCustom03" class="form-label fw-semibold">Amount</label>
             <div class="input-group">
               <span class="input-group-text">$</span>
               <input
@@ -69,101 +76,114 @@
                 aria-label="Amount"
                 aria-describedby="addon-wrapping"
                 min="1"
+                value=""
                 id="validationCustom03"
                 required
               />
+              <span id="alert-amount" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese un monto.</span>
+
             </div>
           </div>
         </div>
         <div class="row d-flex pt-3">
           <div class="col-md-6">
-            <h6>First Name</h6>
+            <label for="validationCustom04" class="form-label fw-semibold">First Name</label>
             <input
               type="text"
               class="form-control"
               placeholder=""
               aria-label="FirstName"
               aria-describedby="addon-wrapping"
+              pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]+"
+              value=""
               id="validationCustom04"
               required
             />
+            <span id="alert-name" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese su nombre.</span>
           </div>
           <div class="col-md-6">
-            <h6>Last Name</h6>
+            <label for="validationCustom05" class="form-label fw-semibold">Last Name</label>
             <input
               type="text"
               class="form-control"
               placeholder=""
               aria-label="LastName"
               aria-describedby="addon-wrapping"
+              pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]+"
+              value=""
               id="validationCustom05"
               required
             />
+            <span id="alert-lastname" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese su apellido.</span>
           </div>
         </div>
         <div class="row d-flex pt-3">
           <div class="col-md-6">
-            <h6>City</h6>
+            <label for="validationCustom06" class="form-label fw-semibold">City</label>
             <input
               type="text"
               class="form-control"
               placeholder=""
               aria-label="City"
               aria-describedby="addon-wrapping"
+              pattern="[A-Za-záéíóúÁÉÍÓÚñÑ ]+"
+              value=""
               id="validationCustom06"
               required
             />
+            <span id="alert-city" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Elija su ciudad.</span>
           </div>
           <div class="col-md-3">
-            <h6>State</h6>
+            <label for="validationCustom07" class="form-label fw-semibold">State</label>
             <select class="form-select" id="validationCustom07" required>
               <option selected disabled value="">Pick State</option>
               <option>Mi casa</option>
               <option>Que se yo</option>
             </select>
+            <span id="alert-state" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Elija su Estado.</span>
           </div>
           <div class="col-md-3">
-            <h6>Postal</h6>
+            <label for="validationCustom08" class="form-label fw-semibold">Postal</label>
             <input
               type="text"
               class="form-control"
               placeholder=""
               aria-label="Postal"
               aria-describedby="addon-wrapping"
+              value=""
               id="validationCustom08"
               required
             />
+            <span id="alert-postal" class="invalid-feedback fst-normal" style="color: #b3261e;"><i class="ri-error-warning-fill"></i> Ingrese su postal.</span>
           </div>
         </div>
         <div class="row d-flex pt-3">
           <div class="col-md-6">
-            <h6>We accept:</h6>
-            <div
-              class="col-12 col-lg-5 bg-secondary pt-1 d-flex justify-content-center rounded"
-            >
+            <label class="form-label fw-semibold">We accept</label>
+            <div class="col-12 col-lg-5 bg-secondary pt-1 d-flex justify-content-center rounded">
               <div class="form-check form-check-inline px-0 mx-1">
                 <input
                   class=""
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio1"
-                  value="option1"
+                  required
                 />
-                <label class="form-check-label" for="inlineRadio1"
-                  ><i class="ri-mastercard-line text-white"></i>
+                <label class="form-check-label" for="inlineRadio1">
+                  <i class="ri-mastercard-line text-white"></i>
                 </label>
               </div>
-              <div class="form-check form-check-inline px-0 mx-2 required">
+              <div class="form-check form-check-inline px-0 mx-2">
                 <input
                   class=""
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio2"
-                  value="option2"
+                  required
                 />
-                <label class="form-check-label" for="inlineRadio2"
-                  ><i class="ri-visa-fill text-white"></i
-                ></label>
+                <label class="form-check-label" for="inlineRadio2">
+                  <i class="ri-visa-fill text-white"></i>
+                </label>
               </div>
               <div class="form-check form-check-inline px-0 mx-1">
                 <input
@@ -171,10 +191,9 @@
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio3"
-                  value="option3"
                 />
-                <label class="form-check-label" for="inlineRadio3"
-                  ><i class="ri-paypal-fill text-white"></i>
+                <label class="form-check-label" for="inlineRadio3">
+                  <i class="ri-paypal-fill text-white"></i>
                 </label>
               </div>
               <div class="form-check form-check-inline px-0 mx-2">
@@ -183,13 +202,15 @@
                   type="radio"
                   name="inlineRadioOptions"
                   id="inlineRadio4"
-                  value="option4"
                 />
-                <label class="form-check-label" for="inlineRadio4"
-                  ><i class="ri-alipay-fill text-white"></i
-                ></label>
+                <label class="form-check-label" for="inlineRadio4">
+                  <i class="ri-alipay-fill text-white"></i>
+                </label>
               </div>
             </div>
+            <span id="alert-radio" class="invalid-feedback fst-normal text-secondary d-block">
+              <i class="ri-error-warning-fill"></i> Escoja una opción.
+            </span>
           </div>
           <div class="col-md-6">
             <h6>Message</h6>
@@ -203,9 +224,11 @@
         </div>
         <div class="bg-light p-2 border d-flex gap-2 justify-content-end">
           <button class="btn btn-secondary" type="submit">Cancel</button>
-          <button class="btn btn-primary" type="submit">Send</button>
+          <button class="btn btn-primary" type="submit" id="btn-submit">Send</button>
         </div>
       </form>
     </div>
+    <script src="app.js"></script>
   </body>
+  
 </html>
